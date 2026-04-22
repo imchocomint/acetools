@@ -2,7 +2,7 @@
 GUI tools for Acestream + patched for no ads
 
 ## Usage
-Download acetools.exe and engine.zip. Extract the folder inside the zip file to somewhere convenient. Move the acetools executable into one folder above the extracted folder.
+Download acetools.exe and engine-[platform].zip. Extract the folder inside the zip file to somewhere convenient. Move the acetools executable into one folder above the extracted folder.
 
 To watch, prepare VLC/mpv. Search for the needed stream, copy the link and watch it via your prefered player.
 

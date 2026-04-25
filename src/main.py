@@ -1,10 +1,11 @@
 import os
 import subprocess
+import sys
 from search import get_data
 import tkinter as tk
 from tkinter import messagebox, scrolledtext
 from checkrun import checkrun
-runningFrom = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+runningFrom = os.path.dirname(os.path.abspath(sys.argv[0]))
 runState = 0
 root = tk.Tk()
 root.title("acetools")

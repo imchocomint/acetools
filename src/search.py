@@ -16,7 +16,7 @@ def get_data(query):
             for item in entry.get("items", []):
                 name = item.get("name")
                 infohash = item.get("infohash")
-                dd_link = f"http://127.0.0.1:6878/ace/getstream?id={infohash}&hlc=1&transcode_audio=0&transcode_mp3=0&transcode_ac3=0&preferred_audio_language=eng"
+                dd_link = f"http://127.0.0.1:6878/ace/getstream?infohash={infohash}&hlc=1&transcode_audio=0&transcode_mp3=0&transcode_ac3=0&preferred_audio_language=eng"
                 extracted_data.append({
                     "name": name,
                     "link": dd_link

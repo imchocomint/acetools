@@ -5,6 +5,7 @@ from search import get_data
 import tkinter as tk
 from tkinter import messagebox, scrolledtext
 from checkrun import checkrun
+from openlink import open_link
 runningFrom = os.path.dirname(os.path.abspath(sys.argv[0]))
 runState = 0
 root = tk.Tk()
@@ -12,6 +13,7 @@ root.title("acetools")
 root.geometry("800x600")
 
 queryTopic = tk.StringVar()
+linkTopic = tk.StringVar()
 # Search frame
 search_frame = tk.Frame(root, bg="lightgray", pady=10)
 search_frame.pack(fill=tk.X, padx=10, pady=10)
@@ -21,6 +23,17 @@ search_label.pack(side=tk.LEFT, padx=5)
 
 search_entry = tk.Entry(search_frame, textvariable=queryTopic, font=('calibre', 10, 'normal'), width=40)
 search_entry.pack(side=tk.LEFT, padx=5)
+
+# Run frame
+run_frame = tk.Frame(root, bg="lightgray", pady=10)
+run_frame.pack(fill=tk.X, padx=10, pady=10)
+
+run_label = tk.Label(run_frame, text='Link', font=('calibre', 10, 'bold'), bg="lightgray")
+run_label.pack(side=tk.LEFT, padx=5)
+
+run_entry = tk.Entry(run_frame, textvariable=linkTopic, font=('calibre', 10, 'normal'), width=40)
+run_entry.pack(side=tk.LEFT, padx=5)
+
 
 
 # Results frame
@@ -57,6 +70,15 @@ def gui_search():
     
     results_text.config(state=tk.DISABLED)
 
+def gui_open_link():
+    link = linkTopic.get()
+    if not link.strip():
+        messagebox.showwarning("Warning", "Please enter a link")
+        return
+    open_link(link)
+
+
+
 def killace():
     try:
         if os.name == 'nt':
@@ -72,7 +94,8 @@ sub_btn = tk.Button(search_frame, text='Submit', command=gui_search, bg='blue', 
 sub_btn.pack(side=tk.LEFT, padx=5)
 kill_btn = tk.Button(search_frame, text='Kill Acestream', command=killace, bg='red', fg='white', padx=20)
 kill_btn.pack(side=tk.LEFT, padx=5)
-
+open_btn = tk.Button(run_frame, text='Open Link (VLC)', command=gui_open_link, bg='green', fg='white', padx=20)
+open_btn.pack(side=tk.LEFT, padx=5)
 status_label = tk.Label(root, text="", font=('calibre', 10))
 status_label.pack(side=tk.TOP, pady=10)
 

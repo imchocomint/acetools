@@ -15,4 +15,4 @@ Search for the needed stream, copy the link and paste in the "Link" section. Cli
 ## Build
 Inside ./src:
 
-`nuitka --standalone --enable-plugin=tk-inter --windows-console-mode=disable main.py`
+`nuitka --standalone --onefile --enable-plugin=tk-inter --windows-console-mode=disable main.py`
